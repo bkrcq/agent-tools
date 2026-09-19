@@ -1,0 +1,4 @@
+import type { Metadata } from 'next';
+import { TokenCostCalculator } from '@/components/calculators';
+export const metadata: Metadata = { title: 'AI Token Cost Calculator', description: 'Estimate LLM input and output cost per call, per day, and per month.', alternates: { canonical: '/ai-token-cost-calculator/' } };
+export default function Page() { return <div className="shell page"><p className="eyebrow">Free online calculator</p><h1>AI Token Cost Calculator</h1><p className="lead">Estimate model spend from token usage, calls per day, and editable input/output prices.</p><TokenCostCalculator /><div className="prose"><h2>Use your provider’s current prices</h2><p>Prices change. Replace the defaults with the rates shown on your provider’s official pricing page before using the result for a budget.</p></div></div>; }

@@ -1,0 +1,1 @@
+export default function NotFound() { return <div className="shell page"><p className="eyebrow">404</p><h1>That tool does not exist yet.</h1><p className="lead">Return to the home page to see the available AI developer tools.</p><a className="button primary" href="/">Back home</a></div>; }

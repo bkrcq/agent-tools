@@ -1,0 +1,4 @@
+import type { Metadata } from 'next';
+import Validator from '@/components/validator';
+export const metadata: Metadata = { title: 'AGENTS.md Validator', description: 'Check whether an AGENTS.md, CLAUDE.md, or Codex instruction file covers essential project rules.', alternates: { canonical: '/agents-md-validator/' } };
+export default function Page() { return <div className="shell page"><p className="eyebrow">Free browser-based checker</p><h1>AGENTS.md Validator</h1><p className="lead">Paste an AI coding instruction file and get a fast checklist of missing project guidance. Your text stays in your browser.</p><Validator /><div className="prose"><h2>What this checker looks for</h2><p>Purpose, setup, tests, structure, style, commits, environment variables, and safety rules. Add project-specific guidance for better agent results.</p></div></div>; }

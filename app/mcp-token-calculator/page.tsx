@@ -1,0 +1,4 @@
+import type { Metadata } from 'next';
+import { McpBudgetCalculator } from '@/components/calculators';
+export const metadata: Metadata = { title: 'MCP Tool Budget Calculator', description: 'Estimate MCP tool schema and response tokens used by an AI agent.', alternates: { canonical: '/mcp-token-calculator/' } };
+export default function Page() { return <div className="shell page"><p className="eyebrow">Free online calculator</p><h1>MCP Tool Budget Calculator</h1><p className="lead">Estimate how tool definitions and repeated tool responses consume an agent’s token budget.</p><McpBudgetCalculator /><div className="prose"><h2>What the estimate includes</h2><p>This simple model separates tool schema tokens from response tokens. Measure real payloads when you tune a production agent.</p></div></div>; }
