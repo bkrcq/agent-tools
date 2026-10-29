@@ -1,5 +1,5 @@
 export const siteConfig = {
   name: 'Agent Tools',
   url: 'https://agent-tools-liard.vercel.app',
-  description: 'Free browser-based calculators and diagnostics for AI coding agents, tokens, context windows, and MCP tools.',
+  description: 'Free AI token usage calculator, context window calculator, MCP token budget calculator, and AGENTS.md validator for developers building AI coding agents.',
 };
