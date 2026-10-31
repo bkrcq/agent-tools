@@ -30,6 +30,14 @@ export const metadata: Metadata = {
     title: "SkillSpector Checklist: Scan Agent Skills Before Installing",
     description:
       "A 5-minute SkillSpector checklist: scan before you install, read every finding yourself, and treat the score as a torch, not a gate.",
+    images: [
+      {
+        url: `${SITE_URL}${PAGE_PATH}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: "SkillSpector Checklist: Scan Agent Skills Before Installing",
+      },
+    ],
   },
   alternates: {
     canonical: `${SITE_URL}${PAGE_PATH}`,
@@ -92,7 +100,7 @@ const ARTICLE_SCHEMA = {
   author: { "@type": "Organization", name: "Agent Tools" },
   publisher: { "@type": "Organization", name: "Agent Tools" },
   datePublished: "2026-10-29",
-  dateModified: "2026-10-29",
+  dateModified: "2026-10-31",
 };
 
 function H2({ id, children }: { id: string; children: React.ReactNode }) {
@@ -471,11 +479,45 @@ skillspector scan ./my-skill/ --baseline .skillspector-baseline.yaml`}
 
         <div className="mt-10 rounded-xl border border-slate-200 bg-slate-50 p-6">
           <p className="font-semibold text-slate-900">Related on Agent Tools</p>
-          <p className="mt-1 text-sm text-slate-600">
-            TODO at integration time: replace this block with at least three real internal links
-            to existing agent-tools pages. Do not invent slugs — use the repo&apos;s actual routes.
-          </p>
-          <Link href="/" className="mt-3 inline-block text-sm font-medium text-indigo-700 underline underline-offset-4">
+          <ul className="mt-3 space-y-3 text-sm">
+            <li>
+              <Link href="/agents-md-validator" className="font-medium text-indigo-700 underline underline-offset-4">
+                AGENTS.md Validator &amp; Checker
+              </Link>
+              <p className="mt-1 text-slate-600">
+                Validate an AGENTS.md, CLAUDE.md or Codex instruction file — the same
+                check-before-you-trust idea, applied to the instruction file itself.
+              </p>
+            </li>
+            <li>
+              <Link href="/agents-md-guide" className="font-medium text-indigo-700 underline underline-offset-4">
+                AGENTS.md Guide
+              </Link>
+              <p className="mt-1 text-slate-600">
+                What belongs in an AI coding instruction file, with examples and a validation
+                checklist — useful when a scan flags a description-behaviour mismatch.
+              </p>
+            </li>
+            <li>
+              <Link href="/ai-coding-agent-setup" className="font-medium text-indigo-700 underline underline-offset-4">
+                AI Coding Agent Setup Checklist
+              </Link>
+              <p className="mt-1 text-slate-600">
+                Fix MCP, PATH and permissions issues when setting up a coding agent — the setup
+                side of the same trust question this page covers for skills.
+              </p>
+            </li>
+            <li>
+              <Link href="/mcp-token-calculator" className="font-medium text-indigo-700 underline underline-offset-4">
+                MCP Token Calculator
+              </Link>
+              <p className="mt-1 text-slate-600">
+                Estimate MCP tool schema and response token budget — relevant when a scan
+                surfaces MCP tool permissions or tool-poisoning findings.
+              </p>
+            </li>
+          </ul>
+          <Link href="/" className="mt-4 inline-block text-sm font-medium text-indigo-700 underline underline-offset-4">
             Back to Agent Tools home
           </Link>
         </div>
