@@ -54,7 +54,7 @@ const articleJson = {
   author: { '@type': 'Organization', name: 'Agent Tools' },
   publisher: { '@type': 'Organization', name: 'Agent Tools' },
   datePublished: '2026-11-09',
-  dateModified: '2026-11-09',
+  dateModified: '2026-11-10',
 };
 
 export default function Page() {
@@ -157,6 +157,104 @@ export default function Page() {
           </li>
         </ul>
 
+<h2>Data flow and permission check: Claude Code vs Pi</h2>
+<p>
+  Permissions are only half the switch. The other half is data flow: what leaves your
+  machine, and in whose name. The table below is a check, not a verdict — the email story
+  in particular is still moving. Checked 10 November 2026.
+</p>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Claude Code</th>
+      <th>Pi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Permission model</th>
+      <td>
+        Built-in permission modes: Manual asks before edits and commands; auto (the default
+        starting mode since 2.1.283) runs everything with a background classifier;
+        bypassPermissions skips prompts and belongs in containers only. Deny rules apply in
+        every mode.
+      </td>
+      <td>
+        None built in — see “What Pi deliberately does not have” above. Project settings and
+        extensions load only after you trust the folder.
+      </td>
+    </tr>
+    <tr>
+      <th>Where prompts and code go</th>
+      <td>To Anthropic’s servers (the Claude API), plus any MCP servers you connect.</td>
+      <td>
+        To whichever provider you pick with /login — Anthropic, OpenAI, Google, OpenRouter, or
+        a local model. Pi itself has no account and no server of its own in the path.
+      </td>
+    </tr>
+    <tr>
+      <th>Your account email in the model’s context</th>
+      <td>
+        Yes, by design: Claude Code injects the signed-in account’s email so the model can
+        identify you (for authorship and attribution). Anthropic staff said on Hacker News
+        that a release removing the address from context was expected early the week of
+        10 November 2026; as of 10 November it is not confirmed shipped.
+      </td>
+      <td>
+        No account, so nothing to inject. That removes one source of the address — not the
+        whole risk (see next row).
+      </td>
+    </tr>
+    <tr>
+      <th>Email sent out in a User-Agent header</th>
+      <td>
+        Confirmed behavior, not a rumor: issue #107757 (5 November 2026, v2.1.318) documents
+        the model putting the account email into curl User-Agent headers on research tasks.
+        The interim guard, cc-plugin-privacy (v2.1.317+), refuses shell calls that pair the
+        address with a User-Agent word — but its own README calls it “a courtesy, not a
+        boundary”: it does not check WebFetch, WebSearch or MCP calls, and users have
+        reported it missing cases on 2.1.318/2.1.319. As of 6 November the stable channel was
+        still on 2.1.311, which has no guard at all.
+      </td>
+      <td>
+        No equivalent report found — but also no guard at all. Pi runs the model’s shell
+        commands with your full permissions, so a model-written curl -A carrying an address
+        would go out unchecked. Switching changes who supplies the address, not whether a
+        shell can send one.
+      </td>
+    </tr>
+    <tr>
+      <th>Telemetry</th>
+      <td>Not covered by this check.</td>
+      <td>
+        Anonymous install/update reporting is on by default; turn it off with PI_TELEMETRY=0.
+        Analytics are opt-in; --offline stops automatic network calls. No published privacy
+        policy for pi.dev or the CLI was found in third-party checks on 23 October and
+        1 November 2026.
+      </td>
+    </tr>
+    <tr>
+      <th>Credentials and transcripts on disk</th>
+      <td>The signed-in account (including the email address) is stored in ~/.claude.json.</td>
+      <td>
+        Provider keys sit in plaintext in ~/.pi/agent/auth.json (owner-only permissions);
+        session transcripts in ~/.pi/agent/sessions keep every tool call and result
+        unredacted.
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  Two things this table does not say. First, the reporter of issue #107757 links the leak
+  to a flood of scam email, but the issue contains no request logs or headers, so that link
+  is unproven — treat it as a report, not a finding. Second, the SEC’s fair-access policy
+  does ask for a contact email in the User-Agent header, which partly explains why a model
+  reaches for an address on SEC requests — but any contact address satisfies it, and it says
+  nothing about Wikipedia, Liquipedia or crates.io. Use a dedicated contact address for
+  automated requests, never your personal account email.
+</p>
+
         <h2>Does switching save money?</h2>
         <p>
           Only the harness is free. Claude Code runs on a $20&ndash;$200/month subscription; with Pi
@@ -187,7 +285,7 @@ export default function Page() {
         <h2>A separate story: Goldman Sachs</h2>
         <p>
           The same day the Pi post topped Hacker News, another front-page item reported Goldman
-          Sachs pulling Claude Code from bankers and traders (433 points). That is enterprise
+          Sachs restricting Claude Code and GitHub Copilot to engineering staff (433 points; reported by Bloomberg on 2 November 2026). That is enterprise
           trust and procurement news, not a personal harness decision, and the two should not be
           read as one cause: one developer leaving over prompt overhead and a bank restricting a
           tool for its staff are different questions with different evidence.
@@ -206,10 +304,11 @@ export default function Page() {
           <li>&ldquo;Goodbye Claude, Hello Pi&rdquo;, caleb.software (reached the Hacker News front page 8 November 2026, 643 points / 410 comments): the 244 releases, ~3,000-token Bash description, December 2025 VSCode bug, AGENTS.md timing and the author&rsquo;s praise for Anthropic are all quoted from the post itself. See <a href="https://caleb.software/posts/claude-to-pi.html" target="_blank" rel="noreferrer">the original post</a>.</li>
           <li>Pi repository and documentation, earendil-works/pi (README, Permissions &amp; Containerization, MCP Servers guide, How Pi Works): no built-in permission system, no sub-agents or plan mode, MCP over stdio/streamable HTTP, install commands, Node.js 22.19+ requirement. See <a href="https://github.com/earendil-works/pi" target="_blank" rel="noreferrer">github.com/earendil-works/pi</a> and <a href="https://pi.dev" target="_blank" rel="noreferrer">pi.dev</a>.</li>
           <li>Release dates (1.0 on 1 October 2026, 1.3.0 on 15 October, 1.5.0 on 2 November 2026) and MCP arriving in 0.99.0 (29 September 2026) per the repository&rsquo;s releases and independent guides checked 9 November 2026; star counts and download figures are not asserted here because they move daily.</li>
-          <li>Goldman Sachs item: Hacker News front page, 8 November 2026 (433 points), reported via thestateofai.com &mdash; cited only as a separate enterprise story, not as evidence about Pi.</li>
+          <li>Goldman Sachs item: Hacker News front page, 8 November 2026 (433 points), reported by Bloomberg on 2 November 2026 &mdash; cited only as a separate enterprise story, not as evidence about Pi.</li>
+          <li>Data-flow check sources (10 November 2026): Claude Code issue #107757 (5 November 2026); the cc-plugin-privacy README in the Claude Code repository (&ldquo;a courtesy, not a boundary&rdquo;); the SEC webmaster FAQ on declaring a User-Agent; the Claude Code permission-modes documentation; Pi environment-variable documentation (pi.dev).</li>
           <li>Unconfirmed and deliberately not asserted here: any benchmark showing Pi faster or cheaper than Claude Code on the same task; the author&rsquo;s release and token counts beyond his own post; and any claim that switching harnesses alone lowers a monthly bill.</li>
         </ul>
-        <p><em>Data checked: 2026-11-09. This is a fast-moving story page: re-verify the Pi releases and the pi-claude-code extension status before reusing it after November 2026.</em></p>
+        <p><em>Data checked: 2026-11-10. This is a fast-moving story page: re-verify the Pi releases and the pi-claude-code extension status before reusing it after November 2026.</em></p>
 
         <h2>Related tools</h2>
         <p>
