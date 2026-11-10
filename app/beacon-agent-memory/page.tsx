@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Beacon Agent Memory: Claude Code, Codex & Cursor Guide',
+  title: 'Beacon Agent Memory for Claude Code and Codex',
   description:
     'Beacon shares agent memory across Claude Code, Codex and Cursor: what it captures, how Local differs from Beacon Cloud, and when plain AGENTS.md files are enough.',
   alternates: { canonical: '/beacon-agent-memory/' },

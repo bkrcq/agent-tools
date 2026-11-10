@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Postman Auto-Install Check: Did Postman Change Your Codex or Claude Code Config?',
+  title: 'Postman Config Check for Codex and Claude Code',
   description:
     'Opening Postman desktop 12.33.4 reportedly auto-installed plugins into Codex and Claude Code. Check ~/.codex/config.toml and ~/.claude/settings.json, and remove the plugin and its startup hook if you did not ask for it.',
   alternates: { canonical: '/postman-codex-claude-check/' },

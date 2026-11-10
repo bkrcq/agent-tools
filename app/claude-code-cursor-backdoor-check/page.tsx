@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Claude Code Cursor Backdoor Self-Check: svc-telemetry Key & 2.1.312 / 2.1.313 Cleanup',
+  title: 'Claude Code Cursor Backdoor Check',
   description:
     'Did you install Claude Code 2.1.312 or 2.1.313 from the Cursor marketplace on 29 Oct 2026? Check for the svc-telemetry SSH key, remove persistence, update to 2.1.314, and rotate credentials.',
   alternates: { canonical: '/claude-code-cursor-backdoor-check/' },
