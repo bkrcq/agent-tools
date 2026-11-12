@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Gemini Decisions API Guide: 1,000 Decisions, $0.10/1M Tokens',
+  title: 'Gemini Decisions API: 1,000 Questions, $0.10',
   description:
     'Gemini Decisions API scores up to 1,000 yes/no, choice, or rubric questions in one pass for $0.10 per million input tokens. Pricing, benchmarks, limits.',
   alternates: { canonical: '/gemini-decisions-api/' },
@@ -48,7 +48,7 @@ const faqJson = {
 const articleJson = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: 'Gemini Decisions API Guide: 1,000 Decisions, $0.10/1M Tokens',
+  headline: 'Gemini Decisions API: 1,000 Questions, $0.10',
   description:
     'A guide to Google\u2019s Gemini Decisions API: the three question types, $0.10 per million input tokens pricing, Google\u2019s own benchmark comparison with Jev and GPT-6 Luna, and the v1beta launch limits.',
   author: { '@type': 'Organization', name: 'Agent Tools' },
