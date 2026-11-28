@@ -1,0 +1,60 @@
+# Agent Tools — agent-tools-liard.vercel.app
+
+> Free, browser-based calculators and checkers for developers building AI coding agents. No signup. Updated November 28, 2026.
+
+Agent Tools helps developers estimate AI token cost and context usage, budget MCP tool tokens, and validate AGENTS.md instruction files. All tools run in the browser. The site also publishes guides to new AI coding tools, agent frameworks, and model releases, with launch dates, pricing, limits, and what is still unconfirmed.
+
+## Who this is for
+
+- Developers using Claude Code, Codex, Cursor, Pi, or other AI coding agents
+- Teams budgeting LLM token spend and context window usage
+- Anyone writing or reviewing AGENTS.md, CLAUDE.md, or Codex instruction files
+
+## Free tools
+
+- AI Token Cost Calculator: https://agent-tools-liard.vercel.app/ai-token-cost-calculator/
+  - Estimate LLM input and output cost per call, per day, and per month from your own token counts and provider prices. Free, no signup.
+- Context Window Calculator: https://agent-tools-liard.vercel.app/context-window-calculator/
+  - See how much of a model's context window your prompt, tool output, and conversation history occupy, and how much room is left.
+- MCP Token Calculator: https://agent-tools-liard.vercel.app/mcp-token-calculator/
+  - Estimate how much of an agent's token budget MCP tool schemas and repeated tool responses consume.
+- AGENTS.md Validator: https://agent-tools-liard.vercel.app/agents-md-validator/
+  - Paste an AI coding instruction file and check whether it covers purpose, setup, tests, structure, style, commits, and safety rules. Your text stays in your browser.
+- AI Coding Agent Setup: https://agent-tools-liard.vercel.app/ai-coding-agent-setup/
+  - Setup checklist for AI coding agents.
+
+## Guides
+
+- Bifura: https://agent-tools-liard.vercel.app/bifura/
+  - Agent-readiness check for websites, November 27, 2026. Free score, $14 report, $19 per month. Score is Bifura's own Score v3 and is not a Google ranking factor.
+- AI Token Usage Guide: https://agent-tools-liard.vercel.app/ai-token-usage-guide/
+- AGENTS.md Guide: https://agent-tools-liard.vercel.app/agents-md-guide/
+- Gemini Decisions API: https://agent-tools-liard.vercel.app/gemini-decisions-api/
+  - Google, launched November 11, 2026. Scores up to 1,000 yes/no, choice, or rubric questions in one pass for $0.10 per million input tokens.
+- Modern Web Guidance: https://agent-tools-liard.vercel.app/modern-web-guidance/
+- Beacon Agent Memory: https://agent-tools-liard.vercel.app/beacon-agent-memory/
+- Postman Codex / Claude Check: https://agent-tools-liard.vercel.app/postman-codex-claude-check/
+- Claude Code to Pi: https://agent-tools-liard.vercel.app/claude-code-to-pi/
+- Windows 11 Coding Agent Telemetry: https://agent-tools-liard.vercel.app/windows-11-coding-agent-telemetry/
+- Gemini 4 Hydrogen: https://agent-tools-liard.vercel.app/gemini-4-hydrogen/
+- Perplexity Decider v1.3: https://agent-tools-liard.vercel.app/perplexity-decider-v1-3/
+- Rankhog: https://agent-tools-liard.vercel.app/rankhog/
+- HiringNow: https://agent-tools-liard.vercel.app/hiringnow/
+- Rakazo: https://agent-tools-liard.vercel.app/rakazo/
+- Claude Code Secret Leak Check: https://agent-tools-liard.vercel.app/claude-code-secret-leak-check/
+- Claude Code Email Leak Check: https://agent-tools-liard.vercel.app/claude-code-email-leak-check/
+- Claude Code Cursor Backdoor Check: https://agent-tools-liard.vercel.app/claude-code-cursor-backdoor-check/
+- SSH Hole Check: https://agent-tools-liard.vercel.app/sshhole-check/
+- Libghostty 1.0: https://agent-tools-liard.vercel.app/libghostty-1-0/
+- Jev Hybrid Routing: https://agent-tools-liard.vercel.app/jev-hybrid-routing/
+- AWS Emulator: https://agent-tools-liard.vercel.app/aws-emulator/
+- Nod by n8n: https://agent-tools-liard.vercel.app/nod-by-n8n/
+- shadcn improve: https://agent-tools-liard.vercel.app/shadcn-improve/
+- Muse Ember vs Haiku: https://agent-tools-liard.vercel.app/muse-ember-vs-haiku/
+- Claude Code Agent Summary Cost: https://agent-tools-liard.vercel.app/claude-code-agent-summary-cost/
+
+## Notes
+
+- Homepage: https://agent-tools-liard.vercel.app/
+- All calculators are free and browser-based; prices change, so replace defaults with the rates on your provider's official pricing page before using a result for a budget.
+- Sitemap: https://agent-tools-liard.vercel.app/sitemap.xml
